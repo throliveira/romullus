@@ -167,17 +167,17 @@ end;
 exec DeletaDado @id_tipo = 11;
 
 
-insert into ContatoSite (nome, email, mensagem, dataHora) values 
-('João Silva', 'joao.silva@gmail.com', 'Gostaria de saber mais sobre seus produtos', '2023-11-09 09:35:00'),
-('Maria Santos', 'maria.santos@hotmail.com', 'Quero fazer uma reclamação sobre o atendimento', '2023-11-09 09:40:00'),
-('Pedro Costa', 'pedro.costa@yahoo.com', 'Parabéns pelo excelente trabalho', '2023-11-09 09:45:00'),
-('Ana Lima', 'ana.lima@outlook.com', 'Preciso de um orçamento para um projeto', '2023-11-09 09:50:00'),
-('Bruno Dias', 'bruno.dias@uol.com.br', 'Tenho uma dúvida sobre a forma de pagamento', '2023-11-09 09:55:00'),
-('Carla Souza', 'carla.souza@bol.com.br', 'Quero cancelar minha compra', '2023-11-09 10:00:00'),
-('Daniel Oliveira', 'daniel.oliveira@terra.com.br', 'Gostaria de fazer uma sugestão de melhoria', '2023-11-09 10:05:00'),
-('Eduarda Rocha', 'eduarda.rocha@icloud.com', 'Quero elogiar o atendimento do vendedor', '2023-11-09 10:10:00'),
-('Fabio Martins', 'fabio.martins@globo.com', 'Preciso de ajuda para resolver um problema', '2023-11-09 10:15:00'),
-('Gabriela Alves', 'gabriela.alves@zoho.com', 'Quero fazer uma parceria com sua empresa', '2023-11-09 10:20:00');
+insert into ContatoSite (nome, email, mensagem, dataHora,fk_TipoContato_id) values 
+('João Silva', 'joao.silva@gmail.com', 'Gostaria de saber mais sobre seus produtos', '2023-11-09 09:35:00', 1),
+('Maria Santos', 'maria.santos@hotmail.com', 'Quero fazer uma reclamação sobre o atendimento', '2023-11-09 09:40:00', 2),
+('Pedro Costa', 'pedro.costa@yahoo.com', 'Parabéns pelo excelente trabalho', '2023-11-09 09:45:00', 3),
+('Ana Lima', 'ana.lima@outlook.com', 'Preciso de um orçamento para um projeto', '2023-11-09 09:50:00', 4),
+('Bruno Dias', 'bruno.dias@uol.com.br', 'Tenho uma dúvida sobre a forma de pagamento', '2023-11-09 09:55:00', 5),
+('Carla Souza', 'carla.souza@bol.com.br', 'Quero cancelar minha compra', '2023-11-09 10:00:00', 1),
+('Daniel Oliveira', 'daniel.oliveira@terra.com.br', 'Gostaria de fazer uma sugestão de melhoria', '2023-11-09 10:05:00',2),
+('Eduarda Rocha', 'eduarda.rocha@icloud.com', 'Quero elogiar o atendimento do vendedor', '2023-11-09 10:10:00',3),
+('Fabio Martins', 'fabio.martins@globo.com', 'Preciso de ajuda para resolver um problema', '2023-11-09 10:15:00',4),
+('Gabriela Alves', 'gabriela.alves@zoho.com', 'Quero fazer uma parceria com sua empresa', '2023-11-09 10:20:00',5);
 
 
 if object_id('AlteraDado', 'P') is not null
@@ -201,16 +201,16 @@ begin
 	where id = @id
 end;
 
-exec AlteraDado @id = 2, @nome = 'José', @email = 'josfilho@email.com', @mensagem = 'Quais as formas de pagamento'
-exec AlteraDado @id = 3, @nome = 'Maria Santos', @email = 'maria.santos@hotmail.com', @mensagem = 'Quero fazer uma reclamação sobre o atendimento'
-exec AlteraDado @id = 4, @nome = 'Pedro Costa', @email = 'pedro.costa@yahoo.com', @mensagem = 'Parabéns pelo excelente trabalho'
-exec AlteraDado @id = 5, @nome = 'Ana Lima', @email = 'ana.lima@outlook.com', @mensagem = 'Preciso de um orçamento para um projeto'
-exec AlteraDado @id = 6, @nome = 'Bruno Dias', @email = 'bruno.dias@uol.com.br', @mensagem = 'Tenho uma dúvida sobre a forma de pagamento'
-exec AlteraDado @id = 7, @nome = 'Carla Souza', @email = 'carla.souza@bol.com.br', @mensagem = 'Quero cancelar minha compra'
-exec AlteraDado @id = 8, @nome = 'Daniel Oliveira', @email = 'daniel.oliveira@terra.com.br', @mensagem = 'Gostaria de fazer uma sugestão de melhoria'
-exec AlteraDado @id = 9, @nome = 'Eduarda Rocha', @email = 'eduarda.rocha@icloud.com', @mensagem = 'Quero elogiar o atendimento do vendedor'
-exec AlteraDado @id = 10, @nome = 'Fabio Martins', @email = 'fabio.martins@globo.com', @mensagem = 'Preciso de ajuda para resolver um problema'
-exec AlteraDado @id = 11, @nome = 'Fabio Martins', @email = 'gabriela.alves@zoho.com', @mensagem = 'Quero fazer uma parceria com sua empresa'
+exec AlteraDado @id = 2, @nome = 'José', @email = 'josfilho@email.com', @mensagem = 'Quais as formas de pagamento', @fk = 1;
+exec AlteraDado @id = 3, @nome = 'Maria Santos', @email = 'maria.santos@hotmail.com', @mensagem = 'Quero fazer uma reclamação sobre o atendimento', @fk = 2;
+exec AlteraDado @id = 4, @nome = 'Pedro Costa', @email = 'pedro.costa@yahoo.com', @mensagem = 'Parabéns pelo excelente trabalho', @fk = 3;
+exec AlteraDado @id = 5, @nome = 'Ana Lima', @email = 'ana.lima@outlook.com', @mensagem = 'Preciso de um orçamento para um projeto', @fk = 4;
+exec AlteraDado @id = 6, @nome = 'Bruno Dias', @email = 'bruno.dias@uol.com.br', @mensagem = 'Tenho uma dúvida sobre a forma de pagamento', @fk = 5;
+exec AlteraDado @id = 7, @nome = 'Carla Souza', @email = 'carla.souza@bol.com.br', @mensagem = 'Quero cancelar minha compra', @fk = 1;
+exec AlteraDado @id = 8, @nome = 'Daniel Oliveira', @email = 'daniel.oliveira@terra.com.br', @mensagem = 'Gostaria de fazer uma sugestão de melhoria', @fk = 2;
+exec AlteraDado @id = 9, @nome = 'Eduarda Rocha', @email = 'eduarda.rocha@icloud.com', @mensagem = 'Quero elogiar o atendimento do vendedor', @fk = 3;
+exec AlteraDado @id = 10, @nome = 'Fabio Martins', @email = 'fabio.martins@globo.com', @mensagem = 'Preciso de ajuda para resolver um problema', @fk = 4;
+exec AlteraDado @id = 11, @nome = 'Fabio Martins', @email = 'gabriela.alves@zoho.com', @mensagem = 'Quero fazer uma parceria com sua empresa', @fk = 5;
 
 
 if object_id('SelecionarCliente', 'P') is not null
@@ -225,7 +225,11 @@ create procedure SelecionarCliente
 @fk int
 as
 begin
-	select * from ContatoSite
-	join TipoContato
-	on ContatoSite.fk_TipoContato_id = TipoContato.id;
+	select ContatoSite.nome 
+	from ContatoSite
+	join TipoContato on ContatoSite.fk_TipoContato_id = TipoContato.id
+	where ContatoSite.id = @id;
 end;
+
+exec SelecionarCliente @id = 1, @nome = 'Nome', @email = 'email', @mensagem = 'mensagem', @fk = 2;
+
